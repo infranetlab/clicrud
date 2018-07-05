@@ -24,14 +24,14 @@ transport = generic(host="172.27.181.121", username="admin", enable="password",
 #                    method="ssh", password="Passw0rd")
 
 
-print "===show version"
-print transport.read("show version", return_type="string")
+print("===show version")
+print(transport.read("show version", return_type="string"))
 
-print "===configure stuff output"
-print transport.configure(["interface TenGigabitEthernet 101/5/1",
-                          "description TEST3"])
+print("===configure stuff output")
+print(transport.configure(["interface TenGigabitEthernet 101/5/1",
+                          "description TEST3"]))
 
-print "===show interface TenGigEth 101/5/1 | inc Description"
-print transport.read("show interface ten 101/5/1 | inc Description", return_type="string")
+print("===show interface TenGigEth 101/5/1 | inc Description")
+print(transport.read("show interface ten 101/5/1 | inc Description", return_type="string"))
 
 transport.close()

@@ -68,7 +68,7 @@ class telnet(object):
             self.client = telnetlib.Telnet(str(_args['host']),
                                            _args['port'], 10)
 
-        except Exception, err:
+        except Exception as err:
             sys.stderr.write('\nERROR for host: %s - %s\n' %
                              (_args['host'], str(err)))
 
@@ -116,7 +116,7 @@ class telnet(object):
                 if _timer >= 240:
                     _detect = False
 
-        except Exception, err:
+        except Exception as err:
             sys.stderr.write('\nERROR for host: %s - %s\n' % (_args['host'],
                                                               str(err)))
 
@@ -264,7 +264,7 @@ class telnet(object):
                         if _timer >= 10:
                             _detect = False
 
-            except Exception, err:
+            except Exception as err:
                 sys.stderr.write('\nERROR for host: %s - %s\n' %
                                  (_args['host'], str(err)))
 
@@ -352,7 +352,7 @@ class telnet(object):
                         _detect = False
 
 
-            except Exception, err:
+            except Exception as err:
                 sys.stderr.write('\nERROR for host: %s - %s\n' %
                                  (_args['host'], str(err)))
                 logging.error('ERROR for host %s - %s\n:' %
@@ -694,7 +694,7 @@ class ssh(object):
                 self._hostname = self.output.translate(None, '\r\n')
                 self._VYATTA_present = True
 
-        except Exception, err:
+        except Exception as err:
             sys.stderr.write('\nERROR for host: %s - %s\n' %
                              (_args['host'], str(err)))
 

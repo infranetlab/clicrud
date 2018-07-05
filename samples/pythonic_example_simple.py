@@ -25,7 +25,7 @@ icxTransport = generic(host=ICX, username="admin", enable="password",
 
 vRTransport = generic(host=vR, username="admin", method="ssh", b64password="password")
 
-print "===ICX Configuration data and feedback:"
+print("===ICX Configuration data and feedback:")
 
 # Returns a dict with commands and responses as key/values
 """print transport.configure([
@@ -34,8 +34,8 @@ print "===ICX Configuration data and feedback:"
                            ])
 """
 
-print "\r\n===ICX Show VLAN brief:"
-print icxTransport.read("show vlan brief", return_type="string")
+print("\r\n===ICX Show VLAN brief:")
+print(icxTransport.read("show vlan brief", return_type="string"))
 
 # Note - no need to enter 'skip'. Pagination is turned off by code.
 
@@ -45,7 +45,7 @@ icxTransport.close()
 
 vRTransport = generic(host=vR, username="admin", method="ssh", b64password="password")
 
-print "===vRouter Show Version:"
+print("===vRouter Show Version:")
 
-print vRTransport.read("show version", return_type="string")
+print(vRTransport.read("show version", return_type="string"))
 vRTransport.close()

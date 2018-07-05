@@ -21,8 +21,8 @@ transport = generic(host="10.18.254.43", username="admin", enable="Passw0rd",
                     method="telnet", password="Passw0rd")
 
 
-print "===show version"
-print transport.read("show version", return_type="string")
+print("===show version")
+print(transport.read("show version", return_type="string"))
 
 
 transport.close()

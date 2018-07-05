@@ -36,9 +36,9 @@ _config_list = return_config_list_from_template(
 transport = generic(host="172.27.181.121", username="admin", enable="password",
                     method="telnet", password="password")
 
-print transport.configure(_config_list)
+print(transport.configure(_config_list))
 
-print transport.read("show running-config interface Ve 100", return_type="string")
+print(transport.read("show running-config interface Ve 100", return_type="string"))
 
 
 

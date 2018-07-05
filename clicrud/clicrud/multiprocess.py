@@ -40,7 +40,7 @@ class buildThread(object):
     def prettyOutput(self):
         _output = self._q.get()
         _return = ""
-        for k, v in _output.iteritems():
+        for k, v in _output.items():
             _return += "\n\nCOMMAND: " + k + "--------------------\r\n\n"
             _return += v + "\n"
         return _return

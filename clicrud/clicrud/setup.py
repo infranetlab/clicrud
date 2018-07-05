@@ -22,7 +22,7 @@ import logging
 import psutil
 import copy
 
-from helpers import cls, getpid
+from .helpers import cls, getpid
 from optparse import OptionParser
 from time import sleep
 
@@ -98,13 +98,13 @@ class setup(object):
         for thread in self._thread_list:
 
             if thread._kwargs['password'] == "":
-                print "Input password for device %s: " % thread._kwargs['host']
+                print("Input password for device %s: " % thread._kwargs['host'])
                 thread._kwargs['password'] = getpass.getpass()
                 if self._splash:
                     self.splash_screen()
 
             if thread._kwargs['enable'] == "":
-                print "Input password for device %s: " % thread._kwargs['host']
+                print("Input password for device %s: " % thread._kwargs['host'])
                 thread._kwargs['enable'] = getpass.getpass()
                 if self._splash:
                     self.splash_screen()
@@ -130,15 +130,15 @@ class setup(object):
 
     def splash_screen(self):
         cls()
-        print 80*"*"
-        print "\t\tB R O C A D E\t\t C L I C R U D\t\tv0.1"
-        print 80*"*"
-        print "Please hit CTRL+C to terminate\n"
+        print(80*"*")
+        print("\t\tB R O C A D E\t\t C L I C R U D\t\tv0.1")
+        print(80*"*")
+        print("Please hit CTRL+C to terminate\n")
 
     def splash_prepare_to_launch(self):
         if not self.parallel:
-            print "In non-parallel mode"
-        print "\n------Progress------\n"
+            print("In non-parallel mode")
+        print("\n------Progress------\n")
 
     def start_processes(self):
         for _idx, _t in enumerate(self._thread_list):
@@ -182,8 +182,8 @@ class setup(object):
                             sleep(0.2)
 
                 except KeyboardInterrupt:
-                    print "\b\nCtrl C - Stopping server"
-                    print "Stopping jobs %s..." % (self._pid_list)
+                    print("\b\nCtrl C - Stopping server")
+                    print("Stopping jobs %s..." % (self._pid_list))
                     # for p in self._thread_list:
                     #    p._t.terminate()
                     # sys.exit(1)
@@ -218,8 +218,8 @@ class setup(object):
                         _t.run()
 
                 except KeyboardInterrupt:
-                    print "\b\nCtrl C - Stopping server"
-                    print "Stopping jobs %s..." % (self._pid_list)
+                    print("\b\nCtrl C - Stopping server")
+                    print("Stopping jobs %s..." % (self._pid_list))
                     # for p in self._thread_list:
                     #    p._t.terminate()
                     # sys.exit(1)
@@ -240,8 +240,8 @@ class setup(object):
         # If you only want to use library programming, then don't worry
         # about this.
         if self._options.loop:
-            print "Entering periodic refresh loop of : %d seconds" \
-                   % (self._SLEEP)
+            print("Entering periodic refresh loop of : %d seconds" \
+                   % (self._SLEEP))
             self.splash_prepare_to_launch()
             # Start the multi-processing off!
             self.start_processes()
@@ -269,7 +269,7 @@ class setup(object):
                     StopCheck = False
             sleep(0.5)
 
-        print "\n\nGoodbye..."
+        print("\n\nGoodbye...")
         for pid in self._pid_list:
             p = psutil.Process(pid)
             p.terminate()
